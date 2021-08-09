@@ -1,8 +1,0 @@
-FROM golang:1.8-alpine
-ADD . /go/src/addcleaner
-RUN go install addcleaner
-
-FROM alpine:latest
-COPY --from=0 /go/bin/addcleaner .
-ENV PORT 8080
-CMD ["./addcleaner"]
